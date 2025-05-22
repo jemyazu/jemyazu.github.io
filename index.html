@@ -1,59 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Universal Stone Direct</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #bg-video {
+      position: fixed; top:50%; left:50%;
+      min-width:100%; min-height:100%;
+      width:auto; height:auto;
+      transform: translate(-50%,-50%);
+      z-index:0; object-fit:cover; background:#000;
+    }
+    .content { position:relative; z-index:10; }
+  </style>
 </head>
-<body>
-
-<header class="hero">
-  <div class="overlay"></div>
-  <div class="hero-inner">
-    <h1 class="title">Universal Stone Direct</h1>
-    <h2 class="subtitle">STONE THROUGH TIME</h2>
-    <a href="#contact" class="btn">Request a Quote</a>
-  </div>
-</header>
-
-<nav class="top-nav">
-  <a href="#products">Products</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="products" class="section">
-  <h3>Our Stone Collection</h3>
-  <div class="grid">
-    <div class="card"><img src="images/beige.jpg" alt="Beige Sandstone"/><h4>Beige Sandstone</h4></div>
-    <div class="card"><img src="images/kota-blue.jpg" alt="Kota Blue"/><h4>Kota Blue</h4></div>
-    <div class="card"><img src="images/basalt.jpg" alt="Basalt Slabs"/><h4>Basalt Slabs</h4></div>
-    <div class="card"><img src="images/red.jpg" alt="Red Mandana"/><h4>Red Mandana</h4></div>
-    <div class="card"><img src="images/rainbow.jpg" alt="Rainbow Stone"/><h4>Rainbow Stone</h4></div>
-    <div class="card"><img src="images/teakwood.jpg" alt="Teakwood Sandstone"/><h4>Teakwood</h4></div>
-    <div class="card"><img src="images/honey.jpg" alt="Kota Honey"/><h4>Kota Honey</h4></div>
-    <div class="card"><img src="images/dholpur.jpg" alt="Dholpur Beige"/><h4>Dholpur Beige</h4></div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <h3>About Us</h3>
-  <p>Based in Kota, Rajasthan, Universal Stone Direct operates a state‑of‑the‑art multiblade block cutter capable of any custom size. From sourcing Beige Sandstone in the Garda belt to precision finishing of basalt slabs, our craftsmen deliver the quality global architects trust.</p>
-</section>
-
-<section id="contact" class="section contact">
-  <h3>Let’s Work Together</h3>
-  <p>Tell us about your next project and we’ll ship tailored stone solutions to your port.</p>
-  <address>
-    <p><strong>Phone:</strong> +91‑9352294285</p>
-    <p><strong>Email:</strong> info@universalstone.co.in</p>
-    <p>Head Office: 113 Shakti Nagar, Kota 324009<br>Factory: 295 Kuber Ext., Ranpur Industrial Area</p>
-  </address>
-</section>
-
-<footer>© 2025 Universal Stone Direct. All rights reserved.</footer>
-
-<script src="script.js"></script>
+<body class="overflow-x-hidden font-sans">
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="videos/website_background_clean_v2.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+  <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-50 p-4 content">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold">Universal Stone Direct</a>
+      <ul class="flex space-x-6">
+        <li><a href="#products" class="text-white hover:text-yellow-400">Products</a></li>
+        <li><a href="#about"   class="text-white hover:text-yellow-400">About</a></li>
+        <li><a href="#contact" class="text-white hover:text-yellow-400">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header class="h-screen flex items-center justify-center content">
+    <h1 class="text-6xl md:text-8xl text-white font-extrabold drop-shadow-lg">STONE THROUGH TIME</h1>
+  </header>
+  <section id="products" class="py-16 bg-white content">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-8 text-center">Our Stone Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- repeat for each product card -->
+        <div class="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://via.placeholder.com/600x400?text=Beige+Sandstone" alt="Beige Sandstone" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Beige Sandstone</h3>
+            <p class="text-gray-700">Durable, warm-toned sandstone perfect for interiors and exteriors.</p>
+          </div>
+        </div>
+        <!-- …other cards… -->
+      </div>
+    </div>
+  </section>
+  <section id="about" class="py-16 bg-gray-50 content">
+    <div class="container mx-auto max-w-3xl text-center">
+      <h2 class="text-4xl font-bold mb-6">About Universal Stone</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Based in Kota, Rajasthan, Universal Stone Direct operates a state-of-the-art multiblade block cutter…
+      </p>
+    </div>
+  </section>
+  <section id="contact" class="py-16 bg-white content">
+    <div class="container mx-auto max-w-xl">
+      <h2 class="text-4xl font-bold mb-6 text-center">Get in Touch</h2>
+      <form action="mailto:info@universalstone.co.in" method="post" enctype="text/plain" class="space-y-4">
+        <div><label>Name</label><input type="text" name="Name" required class="w-full p-2 border rounded"></div>
+        <div><label>Email</label><input type="email" name="Email" required class="w-full p-2 border rounded"></div>
+        <div><label>Message</label><textarea name="Message" rows="5" required class="w-full p-2 border rounded"></textarea></div>
+        <div class="text-center"><button type="submit" class="px-6 py-3 bg-black text-white rounded hover:bg-yellow-500">Send Message</button></div>
+      </form>
+    </div>
+  </section>
+  <footer class="py-6 bg-gray-900 text-gray-400 content">
+    <div class="container mx-auto text-center">© Universal Stone Direct • info@universalstone.co.in</div>
+  </footer>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    }));
+  </script>
 </body>
 </html>
